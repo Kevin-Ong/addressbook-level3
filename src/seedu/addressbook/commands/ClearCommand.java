@@ -13,6 +13,9 @@ public class ClearCommand extends Command {
 
     public ClearCommand() {}
 
+    public boolean isMutating() {
+        return true;
+    }
 
     @Override
     public CommandResult execute() {
