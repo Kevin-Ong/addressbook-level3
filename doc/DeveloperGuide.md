@@ -45,7 +45,13 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | find persons by tags | locate the details of all persons that are tagged with the given phrase
+`* * *` | user | categorise persons other than by tag | classify the persons by general category (family, work, friends etc.) for easier retrieval
+`* * *` | user | edit a person's details | conveniently edit only one of the person's contact details without having to inconveniently delete and readd him
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | retrieve a person by phone | locate the person's name and other contact details given only his phone number
+`* *` | user | retrieve a person by email | locate the person's name and other contact details given only his email address
+`* *` | user | undo previous action | revert the previous state of the addressbook should I make a mistake
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
@@ -74,12 +80,36 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Renaming tags
+
+**MSS**
+
+1. User requests to rename a tag
+2. User specifies the old string and the new string
+3. AddressBook asks user for confirmation, the user accepts
+4. AddressBook replaces all tags containing the old string with tags containing the new string
+Use case ends.
+
+**Extensions**
+
+2a. Any of the strings provided by the user has an invalid format
+
+> 2a1. Addressbook shows an error message.
+  Use case resumes at step 2
+
+3a. User declines after addressbook asks for confirmation
+
+> Use case ends
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be able to secure all the data so that they will only be accessible and alterable through the program
+6. Should be able to recover all the previous data in the event that the program files are deleted accidentally
+7. Should not take too long to respond to and process requests
 
 ## Appendix D : Glossary
 
